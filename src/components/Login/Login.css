@@ -1,0 +1,23 @@
+.login-area{
+    width: 450px;
+    min-height: 70vh;
+    margin : 40px auto;
+    padding: 15px 50px;
+    background-color: aqua;
+    border-radius: 35px 0 35px 0;
+    box-shadow: 10px 10px 10px gray;
+}
+@media all and (max-width: 568px){
+    .login-area{
+        width: 360px;
+        min-height: 80vh;   
+    }
+}
+.hr{
+    height: 3px;
+    background-color: red;
+    margin-top: 20px;
+}
+.googleBtn img{
+ width: 10%;
+}

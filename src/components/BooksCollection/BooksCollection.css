@@ -1,0 +1,12 @@
+
+.box{
+    border-radius: 15px;
+    margin: 40px 0;
+    background-color: aqua;
+    box-shadow: 5px 5px 5px gray;
+    
+}
+.img-area{
+    border-radius: 15px;
+    background-color: rgba(128, 128, 128, 0.356);
+}
