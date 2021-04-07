@@ -5,7 +5,7 @@ import BooksCollection from '../BooksCollection/BooksCollection';
 const Home = () => {
     const [books, setBooks] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:3001/books")
+        fetch("https://boiling-tundra-37742.herokuapp.com/books")
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [])
