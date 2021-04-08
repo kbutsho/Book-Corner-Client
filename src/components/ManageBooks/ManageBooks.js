@@ -10,14 +10,14 @@ const ManageBooks = () => {
     }
     const [books, setBooks] = useState([]);
     useState(() => {
-        fetch('https://boiling-tundra-37742.herokuapp.com/products')
+        fetch('http://localhost:3001/getBooks')
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [])
     const handelDelete = (id) => {
 
         if (window.confirm("Are you sure?")) {
-            fetch(`https://boiling-tundra-37742.herokuapp.com/delete/${id}`, {
+            fetch(`http://localhost:3001/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Accept': 'application/json',

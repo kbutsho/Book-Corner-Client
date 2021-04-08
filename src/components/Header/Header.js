@@ -14,12 +14,9 @@ const Header = () => {
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav ml-auto font-weight-bold">
                         <Link className="nav-link px-4 text-danger" to="/home">Home</Link>
-                        <Link className="nav-link px-4 text-danger" to="/orders">Orders</Link>
+                        <Link className="nav-link px-4 text-danger" to="/orderBooked">Orders</Link>
                         <Link className="nav-link px-4 text-danger" to="/admin">Admin</Link>
-                        {/* <Link className="nav-link px-4 text-danger" to="/deals">Deals</Link> */}
-                        {
-                            loggedInUser.email ?  <Link className="nav-link px-4 text-danger" to="/deals">CheckOut</Link> :  <Link className="nav-link px-4 text-danger" to="/deals">Deals</Link>
-                        }
+                        <Link className="nav-link px-4 text-danger" to="/deals">Deals</Link>
                     </div>
                     {
                         loggedInUser.email ?

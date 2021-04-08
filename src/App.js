@@ -11,9 +11,9 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import ManageBooks from './components/ManageBooks/ManageBooks';
 import NotFound from './components/NotFound/NotFound';
+import OrderBooked from './components/OrderBooked/OrderBooked';
 import Orders from './components/Orders/Orders';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import Warning from './components/Warning/Warning';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';;
 
 export const UserContext = createContext();
 
@@ -30,9 +30,9 @@ const App = () => {
           <PrivateRoute path="/orders/:bookName">
             <Orders></Orders>
           </PrivateRoute>
-          <Route path="/orders">
-            <Warning></Warning>
-          </Route>
+          <PrivateRoute path="/orderBooked">
+            <OrderBooked></OrderBooked>
+          </PrivateRoute>
           <PrivateRoute path="/admin">
             <Admin></Admin>
           </PrivateRoute>
