@@ -24,14 +24,14 @@ const Orders = () => {
     const { bookName } = useParams();
     const [bookData, setBookData] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:3001/getBooks')
+        fetch('https://boiling-tundra-37742.herokuapp.com/getBooks')
             .then(res => res.json())
             .then(data => setBookData(data))
     }, [])
     const selectedBook = bookData.find(book => book.BookName === bookName);
     const handelBooking = () => {
         const newBooking = { ...loggedInUser, ...selectedDate };
-        fetch('http://localhost:3001/addBooking', {
+        fetch('https://boiling-tundra-37742.herokuapp.com/addBooking', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newBooking)

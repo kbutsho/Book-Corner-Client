@@ -32,7 +32,7 @@ const Admin = () => {
             imageURL: imageURL
         };
         console.log(bookData);
-        const url = `http://localhost:3001/addBook`;
+        const url = `https://boiling-tundra-37742.herokuapp.com/addBook`;
         fetch(url, {
             method: 'POST',
             headers: {

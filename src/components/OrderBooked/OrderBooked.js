@@ -7,7 +7,7 @@ const OrderBooked = () => {
     console.log(setLoggedInUser);
     const [bookings, setBookings] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:3001/bookings?email=' + loggedInUser.email)
+        fetch('https://boiling-tundra-37742.herokuapp.com/bookings?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setBookings(data));
     }, [loggedInUser.email])
