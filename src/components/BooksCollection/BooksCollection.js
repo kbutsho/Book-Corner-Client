@@ -3,7 +3,6 @@ import { useHistory } from 'react-router';
 import './BooksCollection.css';
 
 const BooksCollection = (props) => {
-
     const history = useHistory();
     const handelClick = (BookName) => {
         const url = `/orders/${BookName}`;
@@ -11,7 +10,6 @@ const BooksCollection = (props) => {
     }
     const { imageURL, BookName, AuthorName, Price } = props.book;
     return (
-
         <div className="col-lg-4 col-md-6 card-area">
             <div className="box p-4">
                 <div className="img-area text-center py-4">

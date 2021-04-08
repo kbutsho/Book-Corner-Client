@@ -42,9 +42,9 @@ const App = () => {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/ManageBooks">
+          <PrivateRoute path="/ManageBooks">
             <ManageBooks></ManageBooks>
-          </Route>
+          </PrivateRoute>
           <Route exact path="/">
             <Home></Home>
           </Route>

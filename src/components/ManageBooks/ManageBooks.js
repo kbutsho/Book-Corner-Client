@@ -15,7 +15,6 @@ const ManageBooks = () => {
             .then(data => setBooks(data))
     }, [])
     const handelDelete = (id) => {
-
         if (window.confirm("Are you sure?")) {
             fetch(`http://localhost:3001/delete/${id}`, {
                 method: 'DELETE',
@@ -26,24 +25,10 @@ const ManageBooks = () => {
             })
                 .then(data => data.json())
                 .then(result => {
-                    if (result) {
-
-                    }
+                    alert("delete Successfully!! Go Homepage And See!!");
                 })
         }
     }
-
-    // console.log("delete button click", id);
-    // fetch(`http://localhost:3001/delete/${id}`, {
-    //     method: 'DELETE'
-    // })
-    //     .then(res => res.json())
-    //     .then(result => {
-    //         if (result) {
-    //             books.target.parentNode.style.display = "none";
-    //         }
-    //     })
-
     return (
         <div className="container mx-auto">
             <div className="row ">
@@ -52,6 +37,12 @@ const ManageBooks = () => {
                         <div className="row">
                             <div className="col-2 mt-2"><FontAwesomeIcon className="text-white h5" icon={faPlus} /> </div>
                             <div className="col-10 mt-2 font-weight-bold h6">Add Books</div>
+                        </div>
+                    </Link>
+                    <Link className="btn btn-danger nav-link w-75 my-3 mx-auto" to="#">
+                        <div className="row">
+                            <div className="col-2 mt-2"><FontAwesomeIcon className="text-white h5" icon={faEdit} /> </div>
+                            <div className="col-10 mt-2 font-weight-bold h6">Edit Books</div>
                         </div>
                     </Link>
                 </div>

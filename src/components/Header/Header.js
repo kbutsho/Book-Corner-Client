@@ -26,7 +26,6 @@ const Header = () => {
                             </div> :
                             <Link className="nav-link px-4 font-weight-bold btn btn-primary" to="/login">Login</Link>
                     }
-
                 </div>
             </div>
         </nav>

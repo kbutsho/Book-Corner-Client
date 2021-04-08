@@ -1,20 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-
-// import { useParams } from 'react-router';
 import { UserContext } from '../../App';
 
-
 const OrderBooked = () => {
-
-    // const { bookName } = useParams();
-    // const [bookData, setBookData] = useState([]);
-    // useEffect(() => {
-    //     fetch('http://localhost:3001/getBooks')
-    //         .then(res => res.json())
-    //         .then(data => setBookData(data))
-    // }, [])
-    // const selectedBook = bookData.find(book => book.BookName === bookName);
-
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     console.log(setLoggedInUser);

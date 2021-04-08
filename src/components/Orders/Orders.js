@@ -13,7 +13,6 @@ const Orders = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     console.log(setLoggedInUser);
-
     const [selectedDate, setSelectedDate] = useState({
         checkIn: new Date()
     });
@@ -22,9 +21,7 @@ const Orders = () => {
         newDates.checkIn = date;
         setSelectedDate(newDates);
     };
-
     const { bookName } = useParams();
-    console.log("UseParams data", bookName);
     const [bookData, setBookData] = useState([]);
     useEffect(() => {
         fetch('http://localhost:3001/getBooks')
@@ -32,25 +29,42 @@ const Orders = () => {
             .then(data => setBookData(data))
     }, [])
     const selectedBook = bookData.find(book => book.BookName === bookName);
-    
-
-    const handelBooking = ()=>{
-        const newBooking = {...loggedInUser, ...selectedDate};
+    const handelBooking = () => {
+        const newBooking = { ...loggedInUser, ...selectedDate };
         fetch('http://localhost:3001/addBooking', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newBooking)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     }
     return (
         <div className="container my-5">
-
-            <h1>CheckOut</h1>
+            <div className="row">
+                <div className="col-6"><h1>CheckOut</h1></div>
+                <div className="col-6">
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <Grid container justify="space-around">
+                            <KeyboardDatePicker
+                                disableToolbar
+                                variant="inline"
+                                format="dd/MM/yyyy"
+                                margin="normal"
+                                id="Order Date"
+                                label="Order Date"
+                                value={selectedDate.checkIn}
+                                onChange={handleCheckIn}
+                                KeyboardButtonProps={{
+                                    'aria-label': 'change date',
+                                }}
+                            />
+                        </Grid>
+                    </MuiPickersUtilsProvider>
+                </div>
+            </div>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -71,27 +85,9 @@ const Orders = () => {
                         <td className="text-center"> {selectedBook?.Price}</td>
                     </tr>
                     <tr>
-                        <td>Order Date</td>
-                        <td>
-                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                <Grid container justify="space-around">
-                                    <KeyboardDatePicker
-                                        disableToolbar
-                                        variant="inline"
-                                        format="dd/MM/yyyy"
-                                        margin="normal"
-                                        id="Order Date"
-                                        label="Order Date"
-                                        value={selectedDate.checkIn}
-                                        onChange={handleCheckIn}
-                                        KeyboardButtonProps={{
-                                            'aria-label': 'change date',
-                                        }}
-                                    />
-                                </Grid>
-                            </MuiPickersUtilsProvider>
-                        </td>
-                        <td className="text-center"><Link to="/orderBooked" onClick={handelBooking}><button className="btn btn-info mt-3">CheckOut</button></Link></td>
+                        <td></td>
+                        <td></td>
+                        <td className="text-center"><Link to="/orderBooked" onClick={handelBooking}><button className="btn btn-info">CheckOut</button></Link></td>
                     </tr>
                 </tbody>
             </table>
