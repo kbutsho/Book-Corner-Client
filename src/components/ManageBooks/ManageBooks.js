@@ -13,7 +13,8 @@ const ManageBooks = () => {
         fetch('https://boiling-tundra-37742.herokuapp.com/getBooks')
             .then(res => res.json())
             .then(data => setBooks(data))
-    }, [])
+    }, []);
+    // comment
     const handelDelete = (id) => {
         if (window.confirm("Are you sure?")) {
             fetch(`https://boiling-tundra-37742.herokuapp.com/delete/${id}`, {
